@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Result Page</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap');
+            body{
+                font-family: 'Montserrat', sans-serif;
+                background-color: rgb(5, 5, 126);
+            }
+            
+            #heading{
+                color: rgb(255, 255, 255);
+                font-family: 'Montserrat', sans-serif;
+                text-align: center;
+                margin-top: 100px;
+            }
+            .predictions{
+                background-color: rgb(200, 226, 248);
+                text-align: center;
+                height: 350px;
+                max-width: 1200px;
+                width: 30%;
+                margin: auto auto;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                position: absolute;
+            }
+            .name{
+                margin-top: 15px;
+                
+            }
+            #name-percent{
+                text-transform: uppercase;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="heading">Predictions Results</h1>
+        <div class="predictions">
+            <div class="name"></div>
+                {% for r,p in res %}
+                
+                    <h2 id="name-percent"> {{r}} :- {{p}}% <h2> <br/>
+                
+               
+                {% endfor %}
+            </div>
+        </div>
+        
+        
+        
+
+        </body>
+    </html>
