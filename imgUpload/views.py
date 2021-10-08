@@ -8,7 +8,7 @@ import numpy as np
 
 
 def handle_uploaded_file(f):
-    with open('img.jpg', 'wb+') as destination:
+    with open('static/img.jpg', 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
  
@@ -21,10 +21,10 @@ def imageprocess(request):
         handle_uploaded_file(request.FILES['image'])
 
         model = ResNet50(weights='imagenet')
-        img_path = 'img.jpg'
-        img_obj = ImageForm(image)
-        
-        
+        img_path = 'static/img.jpg'
+
+
+
 
         img = image.load_img(img_path, target_size=(224, 224))
         x = image.img_to_array(img)
@@ -38,6 +38,6 @@ def imageprocess(request):
         res=[]
         for e in html:
             res.append((e[1], np.round(e[2]*100, 2)))
-        return render(request, 'result.html', context={'res':res, 'img_obj':img_obj})
+        return render(request, 'result.html', context={'res':res})
 
     return render(request, 'result.html')
